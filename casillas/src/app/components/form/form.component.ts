@@ -6,6 +6,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
+import { ButtonModule } from 'primeng/button';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 
 @Component({
@@ -14,12 +24,18 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './form.component.scss',
   standalone: true,
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    ButtonModule,
+ 
   ]
 })
 export class FormComponent {

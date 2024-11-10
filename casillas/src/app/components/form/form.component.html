@@ -1,14 +1,29 @@
+
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Shipping Information</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+
+      <div class="card flex justify-content-center">
+        <p-button label="Check" icon="pi pi-check"></p-button>
+      </div>
+      
+
       <div class="row">
         <div class="col">
-          <mat-form-field class="full-width">
+          <mat-form-field class="full-width" >
             <input matInput placeholder="Company" formControlName="company">
           </mat-form-field>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Outline form field</mat-label>
+              <input matInput placeholder="Placeholder">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </p>
         </div>
       </div>
       <div class="row">

@@ -10,6 +10,16 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {RouterLink, RouterOutlet} from '@angular/router';
 
+import { MessageService } from 'primeng/api';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+
+interface UploadEvent {
+  originalEvent: Event;
+  files: File[];
+}
+
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -24,10 +34,26 @@ import {RouterLink, RouterOutlet} from '@angular/router';
     AsyncPipe,
     RouterLink,
     RouterOutlet,
-    
+    FileUploadModule,
+    ToastModule,
   ],
+  providers: [MessageService]
 })
+
+
+
 export class NavComponent {
+  
+
+  constructor(private messageService: MessageService) {
+   
+  }
+
+  onUpload(event: UploadEvent) {
+      this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode' });
+     
+  }
+
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -36,3 +62,4 @@ export class NavComponent {
       shareReplay()
     );
 }
+
